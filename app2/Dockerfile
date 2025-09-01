@@ -11,3 +11,14 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
 RUN sed -1 "s/Listen 80/Listen $(PORT)/" /etc/apache2/ports.conf && \
 sed -1 "VirtualHost \*:80>/<VirtualHost \*:$(PORT)>/" /etc/apache2/sites-available/800-default.conf
 
+
+    RUN echo '<Diretory /var/www/html>' >> /etc/apache2/apache2.conf && \
+       echo  '  Options Indexes FollowSymLinks' >> etec/apache2//apache2.conf && \
+       echo  '  AllowOverride All' >> /etc/apache2/apache2.conf && \
+       echo  '  Require all granted' >> /etc/apache2/apache2.conf && \
+       echo  '</Directory>' >> /etc/apache2/apache2.conf 
+
+       EXPOSE ${PORT}
+
+       CMD ["apache2-foreground"]
+
