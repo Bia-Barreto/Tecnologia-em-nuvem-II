@@ -15,7 +15,7 @@ return $binario;
 }
 
 //Exemplo de uso
-$frase ="Olá Mundo!";
+$frase ="Beatriz Barreto Vergulino!";
 $fraseBinario = stringParaBinario($frase);
 
 //Exibindo a frase origina. e a sua versão binária
